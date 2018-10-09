@@ -1,0 +1,82 @@
+<% include ../partials/header %>
+
+            <aside class="menu" id="main">
+                <!-- <p class="menu-label">
+                    Online
+                </p>
+                <ul class="menu-list">
+                    <li>
+                        <a>Naveen</a>
+                    </li>
+                    <li>
+                        <a>Vishal</a>
+                    </li>
+                </ul> -->
+            </aside>
+            <div class="columns">
+                <div class="column">
+            <ul id="messages">
+                <% for(var i=0; i<groupdata.chats.length; i++) { %>
+                    <li>
+                        <div>
+                             <span class="is-size-5 has-text-weight-semibold"><%=groupdata.chats[i].from%></span>
+                             <span><%=groupdata.chats[i].created%></span>
+                        </div>
+                        <div>
+                            <p><%=groupdata.chats[i].text%></p>
+                        </div>
+                    </li>
+                <% } %>
+            </ul>
+            </div>
+            </div>
+            <div id="message">
+            <input type="text" class="input" id="msg" autofocus autocomplete="off" placeholder="Enter message">
+            <button class="button" id="but1">Send</button>
+            <button class="button" id="but2">Send Location</button>
+            <button class="button" id="but3">Send Giphy</button>
+            </div>
+    <span id="data">
+        <%=group%>
+    </span>
+    <span id="user">
+        <%=user%>
+    </span>
+    <script id="message-template" type="text/template"> 
+        <li>
+            <div>
+                 <span class="is-size-5 has-text-weight-semibold">{{from}}</span>
+                 <span>{{created}}</span>
+            </div>
+            <div>
+                <p>{{text}}</p>
+            </div>
+        </li>
+    </script>
+    <script id="gif-message-template" type="text/template">
+        <li>
+            <div>
+                    <span class="is-size-5 has-text-weight-semibold">{{from}}:</span>
+                    <span>{{createdAt}}</span>
+            </div>
+            <div>
+                <img src="{{url}}" class="gif_message">
+            </div>
+        </li>
+    </script>
+    <script id="message-location" type="text/template">
+        <li>
+                   <div>
+                       <span class="is-size-5 has-text-weight-semibold">{{from}}</span>
+                       <span>{{created}}</span>
+                   </div>
+                   <div>
+                       <p><a target="_blank" href="https://www.google.com/maps?q={{latitude}},{{longitude}}">My current location</a></p>
+                   </div>
+               </li>
+    </script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/lib/moment.js"></script>
+    <script src="/js/lib/mustache.js"></script>
+    <script src="/js/new-chat.js"></script>
+    <% include ../partials/footer %>
