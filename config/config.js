@@ -6,5 +6,5 @@ if(run == 'local') {
 }
 
 else{
-    process.env.MONGODB_URL= 'process.env.mongodb://<Somant>:<a123456>@ds225703.mlab.com:25703/hangout-app';
+    process.env.MONGODB_URL= 'mongodb://<Somant>:<a123456>@ds225703.mlab.com:25703/hangout-app';
 }
